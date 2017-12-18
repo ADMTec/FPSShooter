@@ -12,9 +12,6 @@ EBTNodeResult::Type UFocusAtPoint::ExecuteTask(UBehaviorTreeComponent& OwnerComp
 	auto BlackboardComp = OwnerComp.GetBlackboardComponent();
 	auto actorToFocusOn = BlackboardComp->GetValueAsObject(IndexKey.SelectedKeyName);
 	auto enemy = Cast<AActor>(actorToFocusOn);
-	if (enemy == nullptr) {
-		return EBTNodeResult::Failed;
-	}
 
 	aiController->SetFocus(enemy, EAIFocusPriority::Gameplay);
 
